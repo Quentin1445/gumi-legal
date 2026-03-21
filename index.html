@@ -3,96 +3,1534 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gumi — Informations légales</title>
+    <title>Gumi — Coach IA pour ton chien | Dressage, sante & balades personnalises</title>
+    <meta name="description" content="Gumi est l'app iOS de coaching canin propulsee par intelligence artificielle. Coach personnalise par race, suivi sante, tracker de balades GPS et scanner alimentaire.">
+    <meta property="og:title" content="Gumi — Coach IA pour ton chien | Dressage, sante & balades personnalises">
+    <meta property="og:description" content="Gumi est l'app iOS de coaching canin propulsee par intelligence artificielle. Coach personnalise par race, suivi sante, tracker de balades GPS et scanner alimentaire.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gumi-app.com">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --orange: #FF8C42;
+            --orange-light: #FFB380;
+            --orange-pale: #FFF3EB;
+            --blue-dark: #1A1B4B;
+            --green: #4CAF82;
+            --bg: #FAFAF8;
+            --surface: #F2F2F7;
+            --white: #FFFFFF;
+            --text: #1A1B4B;
+            --text-secondary: #6B6B80;
+            --shadow-sm: 0 2px 8px rgba(26, 27, 75, 0.06);
+            --shadow-md: 0 8px 32px rgba(26, 27, 75, 0.08);
+            --shadow-lg: 0 16px 48px rgba(26, 27, 75, 0.12);
+            --radius: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
-            background-color: #FAFAF8;
-            color: #1A1B4B;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', 'SF Pro Display', 'Helvetica Neue', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
         }
-        .logo {
-            font-size: 48px;
-            margin-bottom: 8px;
-        }
-        h1 {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', 'Helvetica Neue', sans-serif;
-            font-size: 28px;
-            color: #FF8C42;
-            margin-bottom: 8px;
-        }
-        .subtitle {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 40px;
-        }
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 40px;
-        }
-        .links a {
-            display: block;
-            padding: 20px;
-            background: white;
-            border-radius: 16px;
+
+        a {
+            color: inherit;
             text-decoration: none;
-            color: #1A1B4B;
-            font-size: 18px;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================
+           NAVBAR
+           ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(250, 250, 248, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(26, 27, 75, 0.06);
+            padding: 14px 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            color: var(--blue-dark);
+        }
+
+        .navbar-brand .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--orange), #FF6B1A);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .navbar-links a:hover {
+            color: var(--orange);
+        }
+
+        .navbar-cta {
+            background: linear-gradient(135deg, var(--orange), #FF6B1A);
+            color: var(--white) !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            font-size: 14px !important;
+            box-shadow: 0 4px 16px rgba(255, 140, 66, 0.3);
             transition: transform 0.2s, box-shadow 0.2s;
         }
-        .links a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+
+        .navbar-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(255, 140, 66, 0.4);
         }
-        .links a span {
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--blue-dark);
+            border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            padding: 140px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 140, 66, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(76, 175, 130, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeSlideUp 0.8s ease-out both;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--orange-pale);
+            color: var(--orange);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            animation: fadeSlideUp 0.8s ease-out 0.1s both;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            color: var(--blue-dark);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            animation: fadeSlideUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--orange), #FF6B1A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(17px, 2vw, 20px);
+            color: var(--text-secondary);
+            margin-bottom: 36px;
+            max-width: 480px;
+            line-height: 1.7;
+            animation: fadeSlideUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            animation: fadeSlideUp 0.8s ease-out 0.4s both;
+        }
+
+        .app-store-badge {
+            display: inline-block;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .app-store-badge:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .app-store-badge svg {
+            height: 52px;
+            width: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 40px;
+            animation: fadeSlideUp 0.8s ease-out 0.5s both;
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-value {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--blue-dark);
+        }
+
+        .hero-stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Phone mockup */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeSlideUp 0.8s ease-out 0.3s both;
+        }
+
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: var(--white);
+            border-radius: 40px;
+            box-shadow: var(--shadow-lg), 0 0 0 2px rgba(26, 27, 75, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 30px;
+            background: var(--white);
+            border-radius: 0 0 18px 18px;
+            z-index: 2;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%);
+            border-radius: 38px;
+            padding: 50px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .phone-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .phone-greeting {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .phone-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--blue-dark);
+        }
+
+        .phone-paw-circle {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--orange), #FF6B1A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 32px rgba(255, 140, 66, 0.3);
+            animation: floatPaw 3s ease-in-out infinite;
+        }
+
+        .phone-score {
+            font-size: 14px;
+            color: var(--green);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .phone-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .phone-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 14px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(26, 27, 75, 0.04);
+        }
+
+        .phone-card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .phone-card-icon.orange { background: var(--orange-pale); }
+        .phone-card-icon.green { background: #E8F5E9; }
+        .phone-card-icon.blue { background: #E8EAF6; }
+
+        .phone-card-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--blue-dark);
+        }
+
+        .phone-card-sub {
+            font-size: 10px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .phone-bottom-bar {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--blue-dark);
+            border-radius: 4px;
+            opacity: 0.2;
+        }
+
+        @keyframes floatPaw {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ============================================
+           SECTION COMMON
+           ============================================ */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--orange-pale);
+            color: var(--orange);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(28px, 4vw, 40px);
+            color: var(--blue-dark);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .section-desc {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-header .section-desc {
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           FEATURES
+           ============================================ */
+        .features {
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid rgba(26, 27, 75, 0.06);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon.orange-bg { background: var(--orange-pale); }
+        .feature-icon.green-bg { background: #E8F5E9; }
+        .feature-icon.blue-bg { background: #E8EAF6; }
+        .feature-icon.purple-bg { background: #F3E5F5; }
+        .feature-icon.red-bg { background: #FFEBEE; }
+        .feature-icon.teal-bg { background: #E0F2F1; }
+
+        .feature-title {
+            font-size: 19px;
+            color: var(--blue-dark);
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           HOW IT WORKS
+           ============================================ */
+        .how-it-works {
+            background: var(--bg);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: calc(16.66% + 20px);
+            right: calc(16.66% + 20px);
+            height: 3px;
+            background: linear-gradient(90deg, var(--orange), var(--green));
+            border-radius: 3px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--orange), #FF6B1A);
+            color: var(--white);
+            font-size: 30px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 24px rgba(255, 140, 66, 0.25);
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-title {
+            font-size: 20px;
+            color: var(--blue-dark);
+            margin-bottom: 10px;
+        }
+
+        .step-desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           PRICING
+           ============================================ */
+        .pricing {
+            background: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            align-items: start;
+        }
+
+        .plan-card {
+            background: var(--white);
+            border: 2px solid var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .plan-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-md);
+        }
+
+        .plan-card.featured {
+            border-color: var(--orange);
+            box-shadow: 0 8px 40px rgba(255, 140, 66, 0.15);
+            transform: scale(1.04);
+        }
+
+        .plan-card.featured.visible {
+            transform: scale(1.04);
+        }
+
+        .plan-card.featured:hover {
+            transform: scale(1.06);
+            box-shadow: 0 12px 48px rgba(255, 140, 66, 0.2);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--orange), #FF6B1A);
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .plan-name {
+            font-size: 18px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+
+        .plan-price {
+            font-size: 44px;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin-bottom: 4px;
+        }
+
+        .plan-price .currency {
+            font-size: 22px;
+            vertical-align: super;
+        }
+
+        .plan-period {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .plan-trial {
+            display: inline-block;
+            background: #E8F5E9;
+            color: var(--green);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .plan-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .plan-features li {
+            font-size: 14px;
+            color: var(--text);
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .plan-features li::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #E8F5E9;
+            flex-shrink: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%234CAF82'%3E%3Cpath d='M8.5 13.3L5.2 10l1.1-1.1 2.2 2.2 4.9-4.9 1.1 1.1z'/%3E%3C/svg%3E");
+            background-size: 20px;
+        }
+
+        .plan-features li.limited::before {
+            background: var(--surface);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236B6B80'%3E%3Cpath d='M5 9.5h10v1H5z'/%3E%3C/svg%3E");
+            background-size: 20px;
+        }
+
+        .plan-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: inherit;
+        }
+
+        .plan-btn.primary {
+            background: linear-gradient(135deg, var(--orange), #FF6B1A);
+            color: var(--white);
+            box-shadow: 0 4px 16px rgba(255, 140, 66, 0.3);
+        }
+
+        .plan-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(255, 140, 66, 0.4);
+        }
+
+        .plan-btn.secondary {
+            background: var(--surface);
+            color: var(--blue-dark);
+        }
+
+        .plan-btn.secondary:hover {
+            background: #E8E8ED;
+            transform: translateY(-2px);
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .pricing-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* ============================================
+           FAQ
+           ============================================ */
+        .faq {
+            background: var(--bg);
+        }
+
+        .faq-list {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(26, 27, 75, 0.08);
+        }
+
+        .faq-item summary {
+            padding: 20px 0;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--blue-dark);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.2s;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--orange);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .faq-item[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-item summary:hover {
+            color: var(--orange);
+        }
+
+        .faq-answer {
+            padding: 0 0 20px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            animation: faqOpen 0.3s ease-out;
+        }
+
+        @keyframes faqOpen {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           FINAL CTA
+           ============================================ */
+        .final-cta {
+            background: linear-gradient(135deg, var(--blue-dark), #2A2B6B);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 140, 66, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .final-cta h2 {
+            color: var(--white);
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: 16px;
+        }
+
+        .final-cta p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 18px;
+            margin-bottom: 36px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--blue-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 48px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .footer-brand .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--orange), #FF6B1A);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+        }
+
+        .footer-tagline {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .footer-links {
+            text-align: center;
+        }
+
+        .footer-links a {
             display: block;
             font-size: 14px;
-            font-weight: 400;
-            color: #666;
-            margin-top: 4px;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 6px 0;
+            transition: color 0.2s;
         }
-        .contact {
+
+        .footer-links a:hover {
+            color: var(--orange);
+        }
+
+        .footer-contact {
+            text-align: right;
+        }
+
+        .footer-contact-label {
             font-size: 14px;
-            color: #999;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 8px;
         }
-        .contact a {
-            color: #FF8C42;
-            text-decoration: none;
+
+        .footer-contact a {
+            font-size: 14px;
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+        }
+
+        .footer-badge {
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .footer-badge:hover {
+            opacity: 1;
+        }
+
+        .footer-badge svg {
+            height: 36px;
+            width: auto;
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* stagger for feature cards */
+        .feature-card:nth-child(1).visible { transition-delay: 0s; }
+        .feature-card:nth-child(2).visible { transition-delay: 0.1s; }
+        .feature-card:nth-child(3).visible { transition-delay: 0.2s; }
+        .feature-card:nth-child(4).visible { transition-delay: 0.3s; }
+        .feature-card:nth-child(5).visible { transition-delay: 0.4s; }
+        .feature-card:nth-child(6).visible { transition-delay: 0.5s; }
+
+        .step:nth-child(1).visible { transition-delay: 0s; }
+        .step:nth-child(2).visible { transition-delay: 0.15s; }
+        .step:nth-child(3).visible { transition-delay: 0.3s; }
+
+        .plan-card:nth-child(1).visible { transition-delay: 0s; }
+        .plan-card:nth-child(2).visible { transition-delay: 0.1s; }
+        .plan-card:nth-child(3).visible { transition-delay: 0.2s; }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 900px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps::before {
+                display: none;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .plan-card.featured {
+                transform: none;
+                order: -1;
+            }
+
+            .plan-card.featured.visible {
+                transform: none;
+            }
+
+            .plan-card.featured:hover {
+                transform: translateY(-4px) scale(1.02);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 24px;
+            }
+
+            .footer-contact {
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .navbar-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(250, 250, 248, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                gap: 12px;
+                border-bottom: 1px solid rgba(26, 27, 75, 0.06);
+            }
+
+            .navbar-links.open {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .phone-mockup {
+                width: 240px;
+                height: 480px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">🐾</div>
-        <h1>Gumi</h1>
-        <p class="subtitle">Coach IA pour ton chien</p>
 
-        <div class="links">
-            <a href="privacy-policy.html">
-                🔒 Politique de confidentialité
-                <span>Comment nous protégeons tes données</span>
+    <!-- ============================================
+         NAVBAR
+         ============================================ -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand">
+                <span class="logo-icon">🐾</span>
+                Gumi
             </a>
-            <a href="terms.html">
-                📄 Conditions Générales d'Utilisation
-                <span>Règles d'utilisation du service</span>
+            <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.navbar-links').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="navbar-links">
+                <li><a href="#features">Fonctionnalites</a></li>
+                <li><a href="#how-it-works">Comment ca marche</a></li>
+                <li><a href="#pricing">Tarifs</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#pricing" class="navbar-cta">Telecharger</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO
+         ============================================ -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🐕 Disponible sur iOS</div>
+                <h1>L'IA qui <span class="highlight">comprend</span> ton chien</h1>
+                <p class="hero-subtitle">Coach personnalise, suivi sante, balades GPS et bien plus — adapte a la race de ton compagnon.</p>
+                <div class="hero-actions">
+                    <a href="#pricing" class="app-store-badge" aria-label="Telecharger dans l'App Store">
+                        <svg viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="180" height="60" rx="10" fill="#000"/>
+                            <rect x="0.8" y="0.8" width="178.4" height="58.4" rx="9.2" fill="none" stroke="#A6A6A6" stroke-width="0.8"/>
+                            <!-- Apple logo -->
+                            <g transform="translate(16, 12) scale(0.75)">
+                                <path d="M32.6 11.4c-1.8 2.1-4.7 3.7-7.1 3.6-.3-2.6.9-5.4 2.5-7.1 1.8-2 4.9-3.4 7-3.5.3 2.7-.8 5.4-2.4 7zM35 17.2c-3.9-.2-7.2 2.2-9 2.2s-4.7-2.1-7.8-2c-4 .1-7.7 2.3-9.8 5.9-4.2 7.2-1.1 17.9 3 23.8 2 2.9 4.4 6.1 7.5 6 3-.1 4.2-2 7.8-2s4.7 2 7.9 1.9c3.3-.1 5.3-2.9 7.3-5.9 2.2-3.3 3.2-6.6 3.2-6.7-.1 0-6.1-2.4-6.1-9.3 0-5.8 4.7-8.6 4.9-8.7-2.7-4-6.8-4.4-8.3-4.5-.5-.1-1-.1-1.6-.1.3.1.7.2 1 .4z" fill="#fff"/>
+                            </g>
+                            <!-- Text -->
+                            <text x="58" y="22" fill="#fff" font-family="-apple-system, 'Helvetica Neue', sans-serif" font-size="10" font-weight="400">Telecharger dans l'</text>
+                            <text x="58" y="44" fill="#fff" font-family="-apple-system, 'Helvetica Neue', sans-serif" font-size="21" font-weight="600" letter-spacing="-0.3">App Store</text>
+                        </svg>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">100+</div>
+                        <div class="hero-stat-label">Races supportees</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">24/7</div>
+                        <div class="hero-stat-label">Coach IA disponible</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">4.8 ★</div>
+                        <div class="hero-stat-label">Note moyenne</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="phone-header">
+                            <div class="phone-greeting">Bonjour ! 👋</div>
+                            <div class="phone-title">Tableau de bord</div>
+                        </div>
+                        <div class="phone-paw-circle">🐾</div>
+                        <div class="phone-score">Score sante : 85/100 ✨</div>
+                        <div class="phone-cards">
+                            <div class="phone-card">
+                                <div class="phone-card-icon orange">🚶</div>
+                                <div>
+                                    <div class="phone-card-text">Balade du jour</div>
+                                    <div class="phone-card-sub">45 min · 2.3 km</div>
+                                </div>
+                            </div>
+                            <div class="phone-card">
+                                <div class="phone-card-icon green">💬</div>
+                                <div>
+                                    <div class="phone-card-text">Coach IA</div>
+                                    <div class="phone-card-sub">Pose tes questions</div>
+                                </div>
+                            </div>
+                            <div class="phone-card">
+                                <div class="phone-card-icon blue">📊</div>
+                                <div>
+                                    <div class="phone-card-text">Check-in quotidien</div>
+                                    <div class="phone-card-sub">Comment va ton chien ?</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-bottom-bar"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FEATURES
+         ============================================ -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">✨ Fonctionnalites</div>
+                <h2 class="section-title">Tout ce dont ton chien a besoin</h2>
+                <p class="section-desc">Un compagnon intelligent qui s'adapte a la race, l'age et les besoins de ton chien.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon orange-bg">🤖</div>
+                    <h3 class="feature-title">Coach IA</h3>
+                    <p class="feature-desc">Un coach qui connait la race de ton chien et adapte ses conseils en temps reel.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon blue-bg">📸</div>
+                    <h3 class="feature-title">Scan Photo</h3>
+                    <p class="feature-desc">Analyse ton chien par photo : race, emotion, etat de sante en quelques secondes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon red-bg">🍖</div>
+                    <h3 class="feature-title">Scan Alimentaire</h3>
+                    <p class="feature-desc">Scanne les croquettes et obtiens un score nutritionnel adapte a ta race.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon green-bg">🗺️</div>
+                    <h3 class="feature-title">Tracker de Balades</h3>
+                    <p class="feature-desc">GPS, distance, duree et calories pour chaque balade avec ton compagnon.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon purple-bg">💊</div>
+                    <h3 class="feature-title">Carnet de Sante</h3>
+                    <p class="feature-desc">Vaccins, veto, poids — tout en un endroit avec rappels automatiques.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon teal-bg">🎓</div>
+                    <h3 class="feature-title">Dressage</h3>
+                    <p class="feature-desc">8 lecons progressives adaptees au niveau et a la race de ton chien.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         HOW IT WORKS
+         ============================================ -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">🚀 Comment ca marche</div>
+                <h2 class="section-title">Pret en 3 etapes</h2>
+                <p class="section-desc">De l'inscription au coaching personnalise en moins d'une minute.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Inscris-toi</h3>
+                    <p class="step-desc">Cree ton compte en 30 secondes avec juste ton email.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Configure ton chien</h3>
+                    <p class="step-desc">Race, age, poids, objectifs — Gumi s'adapte a ton compagnon.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Profite du coaching</h3>
+                    <p class="step-desc">Chat IA, balades, suivi sante — tout est personnalise pour toi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PRICING
+         ============================================ -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">💎 Tarifs</div>
+                <h2 class="section-title">Choisis ton plan</h2>
+                <p class="section-desc">Commence gratuitement, passe a Premium quand tu es pret.</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Free -->
+                <div class="plan-card">
+                    <div class="plan-name">Gratuit</div>
+                    <div class="plan-price">0<span class="currency">€</span></div>
+                    <div class="plan-period">pour toujours</div>
+                    <ul class="plan-features">
+                        <li>3 messages IA par jour</li>
+                        <li>1 scan par semaine</li>
+                        <li>1 balade par jour</li>
+                        <li>3 lecons de dressage</li>
+                        <li class="limited">Historique limite</li>
+                    </ul>
+                    <a href="#hero" class="plan-btn secondary">Commencer</a>
+                </div>
+
+                <!-- Quarterly (Featured) -->
+                <div class="plan-card featured">
+                    <div class="plan-badge">⭐ Populaire</div>
+                    <div class="plan-name">Trimestriel</div>
+                    <div class="plan-price">19,99<span class="currency">€</span></div>
+                    <div class="plan-period">pour 3 mois</div>
+                    <div class="plan-trial">Essai gratuit 7 jours</div>
+                    <ul class="plan-features">
+                        <li>Messages IA illimites</li>
+                        <li>Scans illimites</li>
+                        <li>Balades illimitees</li>
+                        <li>Toutes les lecons</li>
+                        <li>Jusqu'a 3 chiens</li>
+                        <li>Historique complet</li>
+                    </ul>
+                    <a href="#hero" class="plan-btn primary">Essayer gratuitement</a>
+                </div>
+
+                <!-- Annual -->
+                <div class="plan-card">
+                    <div class="plan-name">Annuel</div>
+                    <div class="plan-price">39,99<span class="currency">€</span></div>
+                    <div class="plan-period">par an</div>
+                    <div class="plan-trial">Meilleure offre -67%</div>
+                    <ul class="plan-features">
+                        <li>Messages IA illimites</li>
+                        <li>Scans illimites</li>
+                        <li>Balades illimitees</li>
+                        <li>Toutes les lecons</li>
+                        <li>Jusqu'a 3 chiens</li>
+                        <li>Historique complet</li>
+                    </ul>
+                    <a href="#hero" class="plan-btn secondary">Choisir annuel</a>
+                </div>
+            </div>
+            <p class="pricing-note">Renouvellement automatique. Annule a tout moment.</p>
+            <div class="pricing-cta">
+                <a href="#hero" class="app-store-badge" aria-label="Telecharger dans l'App Store">
+                    <svg viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="180" height="60" rx="10" fill="#000"/>
+                        <rect x="0.8" y="0.8" width="178.4" height="58.4" rx="9.2" fill="none" stroke="#A6A6A6" stroke-width="0.8"/>
+                        <g transform="translate(16, 12) scale(0.75)">
+                            <path d="M32.6 11.4c-1.8 2.1-4.7 3.7-7.1 3.6-.3-2.6.9-5.4 2.5-7.1 1.8-2 4.9-3.4 7-3.5.3 2.7-.8 5.4-2.4 7zM35 17.2c-3.9-.2-7.2 2.2-9 2.2s-4.7-2.1-7.8-2c-4 .1-7.7 2.3-9.8 5.9-4.2 7.2-1.1 17.9 3 23.8 2 2.9 4.4 6.1 7.5 6 3-.1 4.2-2 7.8-2s4.7 2 7.9 1.9c3.3-.1 5.3-2.9 7.3-5.9 2.2-3.3 3.2-6.6 3.2-6.7-.1 0-6.1-2.4-6.1-9.3 0-5.8 4.7-8.6 4.9-8.7-2.7-4-6.8-4.4-8.3-4.5-.5-.1-1-.1-1.6-.1.3.1.7.2 1 .4z" fill="#fff"/>
+                        </g>
+                        <text x="58" y="22" fill="#fff" font-family="-apple-system, 'Helvetica Neue', sans-serif" font-size="10" font-weight="400">Telecharger dans l'</text>
+                        <text x="58" y="44" fill="#fff" font-family="-apple-system, 'Helvetica Neue', sans-serif" font-size="21" font-weight="600" letter-spacing="-0.3">App Store</text>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FAQ
+         ============================================ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">❓ FAQ</div>
+                <h2 class="section-title">Questions frequentes</h2>
+                <p class="section-desc">Tout ce que tu dois savoir avant de commencer.</p>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Gumi est-il gratuit ?</summary>
+                    <div class="faq-answer">Oui ! Le plan gratuit inclut 3 messages IA par jour, 1 scan par semaine et 1 balade par jour. Pour un acces illimite, passe a Premium.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Gumi remplace-t-il un veterinaire ?</summary>
+                    <div class="faq-answer">Non. Gumi est un coach IA qui donne des conseils generaux adaptes a la race de ton chien. Pour tout probleme de sante, consulte toujours un veterinaire.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Mes donnees sont-elles en securite ?</summary>
+                    <div class="faq-answer">Oui. Tes donnees sont chiffrees et hebergees en Europe (Irlande). Les photos sont analysees en memoire et jamais stockees. Tu peux exporter ou supprimer tes donnees a tout moment.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Comment fonctionne le scan photo ?</summary>
+                    <div class="faq-answer">Prends une photo de ton chien et notre IA analyse sa race, son emotion et son etat de sante en quelques secondes.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Puis-je ajouter plusieurs chiens ?</summary>
+                    <div class="faq-answer">Oui ! Avec Premium, tu peux ajouter jusqu'a 3 chiens, chacun avec son propre profil, chat et suivi.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FINAL CTA
+         ============================================ -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Pret a transformer la vie de ton chien ?</h2>
+            <p>Rejoins des milliers de proprietaires qui font confiance a Gumi pour le bien-etre de leur compagnon.</p>
+            <a href="#hero" class="app-store-badge" aria-label="Telecharger dans l'App Store">
+                <svg viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="180" height="60" rx="10" fill="#000"/>
+                    <rect x="0.8" y="0.8" width="178.4" height="58.4" rx="9.2" fill="none" stroke="#A6A6A6" stroke-width="0.8"/>
+                    <g transform="translate(16, 12) scale(0.75)">
+                        <path d="M32.6 11.4c-1.8 2.1-4.7 3.7-7.1 3.6-.3-2.6.9-5.4 2.5-7.1 1.8-2 4.9-3.4 7-3.5.3 2.7-.8 5.4-2.4 7zM35 17.2c-3.9-.2-7.2 2.2-9 2.2s-4.7-2.1-7.8-2c-4 .1-7.7 2.3-9.8 5.9-4.2 7.2-1.1 17.9 3 23.8 2 2.9 4.4 6.1 7.5 6 3-.1 4.2-2 7.8-2s4.7 2 7.9 1.9c3.3-.1 5.3-2.9 7.3-5.9 2.2-3.3 3.2-6.6 3.2-6.7-.1 0-6.1-2.4-6.1-9.3 0-5.8 4.7-8.6 4.9-8.7-2.7-4-6.8-4.4-8.3-4.5-.5-.1-1-.1-1.6-.1.3.1.7.2 1 .4z" fill="#fff"/>
+                    </g>
+                    <text x="58" y="22" fill="#fff" font-family="-apple-system, 'Helvetica Neue', sans-serif" font-size="10" font-weight="400">Telecharger dans l'</text>
+                    <text x="58" y="44" fill="#fff" font-family="-apple-system, 'Helvetica Neue', sans-serif" font-size="21" font-weight="600" letter-spacing="-0.3">App Store</text>
+                </svg>
             </a>
         </div>
+    </section>
 
-        <p class="contact">
-            Contact : <a href="mailto:support@gumi-app.com">support@gumi-app.com</a><br>
-            © 2026 Quentin Beaudouin — Tous droits réservés
-        </p>
-    </div>
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">
+                        <span class="logo-icon">🐾</span>
+                        Gumi
+                    </div>
+                    <p class="footer-tagline">Coach IA pour ton chien</p>
+                    <p class="footer-copy">&copy; 2026 Quentin Beaudouin</p>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Politique de confidentialite</a>
+                    <a href="terms.html">Conditions d'utilisation</a>
+                </div>
+                <div class="footer-contact">
+                    <div class="footer-contact-label">Contact</div>
+                    <a href="mailto:support@gumi-app.com">support@gumi-app.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copy">Fait avec ❤️ pour les amoureux des chiens</span>
+                <a href="#hero" class="footer-badge" aria-label="Telecharger dans l'App Store">
+                    <svg viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="180" height="60" rx="10" fill="#000"/>
+                        <rect x="0.8" y="0.8" width="178.4" height="58.4" rx="9.2" fill="none" stroke="#A6A6A6" stroke-width="0.8"/>
+                        <g transform="translate(16, 12) scale(0.75)">
+                            <path d="M32.6 11.4c-1.8 2.1-4.7 3.7-7.1 3.6-.3-2.6.9-5.4 2.5-7.1 1.8-2 4.9-3.4 7-3.5.3 2.7-.8 5.4-2.4 7zM35 17.2c-3.9-.2-7.2 2.2-9 2.2s-4.7-2.1-7.8-2c-4 .1-7.7 2.3-9.8 5.9-4.2 7.2-1.1 17.9 3 23.8 2 2.9 4.4 6.1 7.5 6 3-.1 4.2-2 7.8-2s4.7 2 7.9 1.9c3.3-.1 5.3-2.9 7.3-5.9 2.2-3.3 3.2-6.6 3.2-6.7-.1 0-6.1-2.4-6.1-9.3 0-5.8 4.7-8.6 4.9-8.7-2.7-4-6.8-4.4-8.3-4.5-.5-.1-1-.1-1.6-.1.3.1.7.2 1 .4z" fill="#fff"/>
+                        </g>
+                        <text x="58" y="22" fill="#fff" font-family="-apple-system, 'Helvetica Neue', sans-serif" font-size="10" font-weight="400">Telecharger dans l'</text>
+                        <text x="58" y="44" fill="#fff" font-family="-apple-system, 'Helvetica Neue', sans-serif" font-size="21" font-weight="600" letter-spacing="-0.3">App Store</text>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         SCROLL ANIMATIONS (IntersectionObserver)
+         ============================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            document.querySelectorAll('.feature-card, .step, .plan-card').forEach(function(el) {
+                observer.observe(el);
+            });
+
+            // Close mobile menu on link click
+            document.querySelectorAll('.navbar-links a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    document.querySelector('.navbar-links').classList.remove('open');
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>

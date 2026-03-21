@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions Generales d'Utilisation — Gumi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #FAFAF8;
+            color: #1A1B4B;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1A1B4B 0%, #2D2E6B 100%);
+            color: #FFFFFF;
+            padding: 2.5rem 1.5rem 2rem;
+            text-align: center;
+        }
+
+        header .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', 'Helvetica Neue', Arial, sans-serif;
+            color: #FF8C42;
+            margin-bottom: 0.3rem;
+        }
+
+        header h1 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', 'Helvetica Neue', Arial, sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        header .updated {
+            font-size: 0.85rem;
+            opacity: 0.75;
+        }
+
+        nav.breadcrumb {
+            max-width: 780px;
+            margin: 1.2rem auto 0;
+            padding: 0 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        nav.breadcrumb a {
+            color: #FF8C42;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #999;
+            margin: 0 0.4rem;
+        }
+
+        main {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 1.5rem 1.5rem 3rem;
+        }
+
+        section {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 1px 4px rgba(26, 27, 75, 0.06);
+        }
+
+        h2 {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1A1B4B;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FF8C42;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2 .num {
+            background: #FF8C42;
+            color: #FFFFFF;
+            font-size: 0.8rem;
+            font-weight: 700;
+            width: 1.6rem;
+            height: 1.6rem;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1A1B4B;
+            margin: 1.2rem 0 0.5rem;
+        }
+
+        p {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin: 0.5rem 0 1rem 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        .highlight-box {
+            background: #FFF3E8;
+            border-left: 4px solid #FF8C42;
+            border-radius: 0 12px 12px 0;
+            padding: 1.2rem 1.4rem;
+            margin: 1rem 0;
+            font-size: 0.93rem;
+        }
+
+        .warning-box {
+            background: #FFF0F0;
+            border-left: 4px solid #E74C3C;
+            border-radius: 0 12px 12px 0;
+            padding: 1.2rem 1.4rem;
+            margin: 1rem 0;
+            font-size: 0.93rem;
+        }
+
+        .warning-box strong {
+            color: #E74C3C;
+        }
+
+        .plans-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #E8E8EF;
+        }
+
+        .plans-table th {
+            background: #1A1B4B;
+            color: #FFFFFF;
+            padding: 0.8rem 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .plans-table td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid #F2F2F7;
+        }
+
+        .plans-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .plans-table tr.recommended {
+            background: #FFF3E8;
+        }
+
+        .plans-table .badge {
+            background: #FF8C42;
+            color: #FFFFFF;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.15rem 0.5rem;
+            border-radius: 8px;
+            margin-left: 0.4rem;
+            vertical-align: middle;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        a {
+            color: #FF8C42;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem 3rem;
+            font-size: 0.82rem;
+            color: #888;
+        }
+
+        footer a {
+            color: #FF8C42;
+        }
+
+        footer .links {
+            margin-top: 0.8rem;
+        }
+
+        footer .links a {
+            margin: 0 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 2rem 1rem 1.5rem;
+            }
+
+            header .logo {
+                font-size: 1.8rem;
+            }
+
+            header h1 {
+                font-size: 1.1rem;
+            }
+
+            main {
+                padding: 1rem 1rem 2rem;
+            }
+
+            section {
+                padding: 1.3rem;
+                border-radius: 14px;
+            }
+
+            h2 {
+                font-size: 1.05rem;
+            }
+
+            .plans-table {
+                font-size: 0.82rem;
+            }
+
+            .plans-table th,
+            .plans-table td {
+                padding: 0.5rem 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Gumi</div>
+    <h1>Conditions Generales d'Utilisation</h1>
+    <div class="updated">Derniere mise a jour : 21 mars 2026</div>
+</header>
+
+<nav class="breadcrumb">
+    <a href="index.html">Accueil</a>
+    <span>›</span>
+    Conditions Generales d'Utilisation
+</nav>
+
+<main>
+
+    <!-- 1. Objet -->
+    <section>
+        <h2><span class="num">1</span> Objet</h2>
+        <p>Les presentes Conditions Generales d'Utilisation (ci-apres "CGU") regissent l'utilisation de l'application mobile <strong>Gumi</strong> (ci-apres "l'Application"), editee par :</p>
+        <div class="highlight-box">
+            <strong>Quentin Beaudouin</strong><br>
+            Micro-entreprise — France<br>
+            Contact : <a href="mailto:support@gumi-app.com">support@gumi-app.com</a>
+        </div>
+        <p>Gumi est une application iOS de <strong>coaching canin propulsee par intelligence artificielle</strong>. Elle propose :</p>
+        <ul>
+            <li>Un <strong>coach IA personnalise</strong> pour chaque chien, base sur la race et le profil</li>
+            <li>Un <strong>suivi sante</strong> (carnet de sante, rappels vaccins, courbe de poids)</li>
+            <li>Un <strong>tracker de balades</strong> avec GPS, chronometre et objectifs adaptes</li>
+            <li>Un <strong>scanner alimentaire IA</strong> pour evaluer la qualite des croquettes</li>
+            <li>Des <strong>lecons de dressage</strong> progressives et des routines de soins</li>
+            <li>Un <strong>check-in quotidien</strong> de bien-etre avec score et suggestions</li>
+        </ul>
+        <p>En utilisant l'Application, l'Utilisateur accepte sans reserve les presentes CGU.</p>
+    </section>
+
+    <!-- 2. Inscription -->
+    <section>
+        <h2><span class="num">2</span> Inscription</h2>
+        <p>Pour utiliser Gumi, l'Utilisateur doit creer un compte en fournissant :</p>
+        <ul>
+            <li>Une adresse email valide</li>
+            <li>Un mot de passe securise</li>
+        </ul>
+        <p>Conditions d'inscription :</p>
+        <ul>
+            <li><strong>Age minimum : 16 ans</strong> conformement au Reglement General sur la Protection des Donnees (RGPD)</li>
+            <li>Un seul compte par personne</li>
+            <li>Maximum <strong>3 chiens</strong> par compte</li>
+        </ul>
+        <p>L'Utilisateur s'engage a fournir des informations exactes et a ne pas usurper l'identite d'un tiers. L'inscription est confirmee par un email de verification.</p>
+    </section>
+
+    <!-- 3. Services gratuits et premium -->
+    <section>
+        <h2><span class="num">3</span> Services gratuits et premium</h2>
+
+        <h3>Offre gratuite</h3>
+        <p>L'Application propose un acces gratuit avec les limitations suivantes :</p>
+        <ul>
+            <li><strong>3 messages IA</strong> par jour</li>
+            <li><strong>1 scan</strong> par semaine (photo animal ou alimentation)</li>
+            <li>Check-in quotidien sans historique</li>
+            <li><strong>1 balade</strong> par jour</li>
+            <li><strong>3 lecons</strong> de dressage</li>
+        </ul>
+
+        <h3>Offres Premium</h3>
+        <p>Pour debloquer toutes les fonctionnalites sans limitation, l'Utilisateur peut souscrire a l'une des formules suivantes :</p>
+
+        <table class="plans-table">
+            <thead>
+                <tr>
+                    <th>Formule</th>
+                    <th>Prix</th>
+                    <th>Essai gratuit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Premium mensuel</td>
+                    <td>9,99 EUR/mois</td>
+                    <td>3 jours</td>
+                </tr>
+                <tr class="recommended">
+                    <td>Premium trimestriel <span class="badge">Recommande</span></td>
+                    <td>19,99 EUR/3 mois</td>
+                    <td>7 jours</td>
+                </tr>
+                <tr>
+                    <td>Premium annuel</td>
+                    <td>39,99 EUR/an</td>
+                    <td>7 jours</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>L'abonnement Premium donne acces a : messages IA illimites, scans illimites, historique complet, balades illimitees, toutes les lecons de dressage, et toutes les fonctionnalites futures.</p>
+    </section>
+
+    <!-- 4. Abonnements -->
+    <section>
+        <h2><span class="num">4</span> Abonnements et paiement</h2>
+        <p>Les abonnements Premium sont geres exclusivement via <strong>Apple StoreKit 2</strong> et le systeme d'achat integre (In-App Purchase) d'Apple.</p>
+        <ul>
+            <li>Le paiement est effectue via le compte Apple ID de l'Utilisateur</li>
+            <li>L'abonnement est a <strong>renouvellement automatique</strong> a la fin de chaque periode</li>
+            <li>L'Utilisateur peut annuler a tout moment depuis les <strong>Reglages iOS > Abonnements</strong></li>
+            <li>L'annulation prend effet a la fin de la periode en cours ; l'acces Premium est maintenu jusqu'a cette date</li>
+            <li>L'essai gratuit est disponible une seule fois par compte Apple</li>
+        </ul>
+        <p><strong>Remboursements :</strong> les remboursements sont geres exclusivement par Apple, conformement a leur politique. Gumi ne procede a aucun remboursement direct.</p>
+        <p>Un bouton <strong>"Restaurer mes achats"</strong> est disponible dans l'Application pour recuperer un abonnement existant (par exemple apres reinstallation ou changement d'appareil).</p>
+    </section>
+
+    <!-- 5. Avertissement important -->
+    <section>
+        <h2><span class="num">5</span> Avertissement important — Limitation medicale</h2>
+        <div class="warning-box">
+            <strong>Gumi n'est PAS un veterinaire.</strong><br><br>
+            L'intelligence artificielle de Gumi fournit des <strong>conseils generaux</strong> bases sur les caracteristiques de la race, le profil du chien et les informations saisies par l'Utilisateur. Ces conseils sont donnes a titre purement <strong>informatif et educatif</strong>.
+        </div>
+        <p>En aucun cas les informations fournies par l'Application ne peuvent se substituer a une <strong>consultation veterinaire professionnelle</strong>.</p>
+        <p>L'Utilisateur s'engage a :</p>
+        <ul>
+            <li>Toujours consulter un <strong>veterinaire diplome</strong> pour tout probleme de sante de son animal</li>
+            <li>Ne pas retarder une consultation veterinaire sur la base des informations fournies par Gumi</li>
+            <li>Exercer son propre jugement dans l'application des conseils recus</li>
+        </ul>
+        <p><strong>Gumi ne pourra en aucun cas etre tenu responsable des decisions prises par l'Utilisateur sur la base des conseils de l'IA</strong>, ni des consequences directes ou indirectes qui en decouleraient.</p>
+    </section>
+
+    <!-- 6. Propriete intellectuelle -->
+    <section>
+        <h2><span class="num">6</span> Propriete intellectuelle</h2>
+        <p>L'ensemble des elements constituant l'Application — incluant mais non limite a : le code source, le design, les textes, les illustrations, les logos, le nom "Gumi", les algorithmes et l'architecture technique — sont la <strong>propriete exclusive de Quentin Beaudouin</strong>.</p>
+        <p>Toute reproduction, distribution, modification ou utilisation non autorisee de ces elements est strictement interdite.</p>
+        <h3>Donnees de l'Utilisateur</h3>
+        <p>L'Utilisateur conserve l'<strong>entiere propriete de ses donnees personnelles</strong> et du contenu qu'il saisit dans l'Application (informations sur son chien, photos, historique). Il peut a tout moment exporter ou supprimer ses donnees.</p>
+    </section>
+
+    <!-- 7. Responsabilite -->
+    <section>
+        <h2><span class="num">7</span> Responsabilite</h2>
+        <p>L'Application est fournie <strong>"en l'etat"</strong> (<em>as is</em>). Gumi s'efforce d'assurer un service fiable et disponible, mais ne peut garantir :</p>
+        <ul>
+            <li>La <strong>disponibilite ininterrompue</strong> du service (maintenance, mises a jour, pannes serveur)</li>
+            <li>L'<strong>exactitude absolue</strong> des conseils generes par l'intelligence artificielle</li>
+            <li>La <strong>preservation des donnees</strong> au-dela des mesures raisonnables de sauvegarde mises en place</li>
+        </ul>
+        <p>Gumi ne saurait etre tenu responsable :</p>
+        <ul>
+            <li>Des dommages directs ou indirects resultant de l'utilisation ou de l'impossibilite d'utiliser l'Application</li>
+            <li>De la perte de donnees en cas de force majeure ou de defaillance technique imprevisible</li>
+            <li>Des decisions prises par l'Utilisateur sur la base des informations fournies par l'IA</li>
+            <li>De tout dysfonctionnement lie a l'appareil, au reseau ou au systeme d'exploitation de l'Utilisateur</li>
+        </ul>
+    </section>
+
+    <!-- 8. Donnees personnelles -->
+    <section>
+        <h2><span class="num">8</span> Donnees personnelles</h2>
+        <p>Gumi collecte et traite des donnees personnelles conformement au <strong>Reglement General sur la Protection des Donnees (RGPD)</strong> et a la loi Informatique et Libertes.</p>
+        <p>Pour connaitre en detail les donnees collectees, les finalites du traitement, les durees de conservation et les droits de l'Utilisateur, veuillez consulter notre <strong><a href="privacy-policy.html">Politique de Confidentialite</a></strong>.</p>
+        <p>Points essentiels :</p>
+        <ul>
+            <li>Les donnees sont hebergees en <strong>Union Europeenne</strong> (Supabase, region Irlande)</li>
+            <li>Aucune donnee n'est vendue a des tiers</li>
+            <li>L'Utilisateur peut <strong>exporter</strong> et <strong>supprimer</strong> ses donnees a tout moment depuis l'Application</li>
+        </ul>
+    </section>
+
+    <!-- 9. Modification des CGU -->
+    <section>
+        <h2><span class="num">9</span> Modification des CGU</h2>
+        <p>Gumi se reserve le droit de modifier les presentes CGU a tout moment, notamment pour se conformer a toute evolution legislative ou reglementaire, ou pour ameliorer le service.</p>
+        <p>En cas de modification substantielle :</p>
+        <ul>
+            <li>L'Utilisateur sera informe via une <strong>notification dans l'Application</strong></li>
+            <li>La date de derniere mise a jour sera actualisee en haut de ce document</li>
+            <li>La poursuite de l'utilisation de l'Application apres notification vaut <strong>acceptation des nouvelles CGU</strong></li>
+        </ul>
+        <p>En cas de desaccord avec les modifications, l'Utilisateur peut cesser d'utiliser l'Application et supprimer son compte.</p>
+    </section>
+
+    <!-- 10. Resiliation -->
+    <section>
+        <h2><span class="num">10</span> Resiliation et suppression de compte</h2>
+        <p>L'Utilisateur peut supprimer son compte a tout moment depuis l'Application, en <strong>2 appuis maximum</strong> (Profil > Supprimer mon compte > Confirmer).</p>
+        <p>La suppression du compte entraine :</p>
+        <ul>
+            <li>La <strong>suppression definitive et irreversible</strong> de toutes les donnees associees (profil, chiens, conversations, check-ins, balades, sante, scans)</li>
+            <li>La suppression du compte d'authentification</li>
+        </ul>
+        <div class="highlight-box">
+            <strong>Important :</strong> la suppression du compte ne resilie pas automatiquement un abonnement Premium en cours. L'Utilisateur doit annuler son abonnement separement depuis les <strong>Reglages iOS > Abonnements</strong> avant de supprimer son compte.
+        </div>
+        <p>Gumi se reserve le droit de suspendre ou supprimer un compte en cas de violation des presentes CGU, d'utilisation abusive, ou de comportement nuisible.</p>
+    </section>
+
+    <!-- 11. Droit applicable -->
+    <section>
+        <h2><span class="num">11</span> Droit applicable et litiges</h2>
+        <p>Les presentes CGU sont regies par le <strong>droit francais</strong>.</p>
+        <p>En cas de litige, les parties s'engagent a rechercher une solution amiable en contactant <a href="mailto:support@gumi-app.com">support@gumi-app.com</a>.</p>
+        <p>A defaut de resolution amiable, le litige sera soumis aux <strong>tribunaux competents du domicile de l'Utilisateur</strong>, conformement aux dispositions du Code de la consommation en matiere de protection des consommateurs.</p>
+        <p>L'Utilisateur est egalement informe qu'il peut recourir a une procedure de <strong>mediation de la consommation</strong> conformement aux articles L.612-1 et suivants du Code de la consommation.</p>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Gumi — Quentin Beaudouin. Tous droits reserves.</p>
+    <div class="links">
+        <a href="index.html">Accueil</a>
+        <a href="privacy-policy.html">Politique de Confidentialite</a>
+        <a href="mailto:support@gumi-app.com">Contact</a>
+    </div>
+</footer>
+
+</body>
+</html>

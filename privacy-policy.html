@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialit&eacute; — Gumi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #FAFAF8;
+            color: #1A1B4B;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1A1B4B 0%, #2D2E6B 100%);
+            color: #FAFAF8;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        header .logo {
+            font-family: -apple-system, 'SF Pro Rounded', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        header .logo span {
+            color: #FF8C42;
+        }
+
+        header h1 {
+            font-family: -apple-system, 'SF Pro Rounded', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        header .updated {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            background: #1A1B4B;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #FF8C42;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-family: -apple-system, 'SF Pro Rounded', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #1A1B4B;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #FF8C42;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1A1B4B;
+            margin: 1.25rem 0 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #2D2E6B;
+        }
+
+        ul, ol {
+            margin: 0.5rem 0 1rem 1.5rem;
+            color: #2D2E6B;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        .highlight-box {
+            background: #FFFFFF;
+            border-left: 4px solid #FF8C42;
+            border-radius: 0 12px 12px 0;
+            padding: 1.25rem 1.5rem;
+            margin: 1.25rem 0;
+            box-shadow: 0 2px 8px rgba(26, 27, 75, 0.06);
+        }
+
+        .highlight-box.green {
+            border-left-color: #4CAF82;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(26, 27, 75, 0.06);
+        }
+
+        .data-table th {
+            background: #1A1B4B;
+            color: #FAFAF8;
+            padding: 0.85rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .data-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #F2F2F7;
+            font-size: 0.95rem;
+            color: #2D2E6B;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:nth-child(even) td {
+            background: #F9F9FB;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #FF8C42;
+            color: #FFFFFF;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            vertical-align: middle;
+        }
+
+        .badge.green {
+            background: #4CAF82;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #1A1B4B 0%, #2D2E6B 100%);
+            color: #FAFAF8;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-box h2 {
+            color: #FAFAF8;
+            border-bottom-color: #FF8C42;
+        }
+
+        .contact-box p {
+            color: rgba(250, 250, 248, 0.85);
+        }
+
+        .contact-box a {
+            color: #FF8C42;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.85rem;
+            color: rgba(26, 27, 75, 0.5);
+            border-top: 1px solid #F2F2F7;
+        }
+
+        strong {
+            color: #1A1B4B;
+        }
+
+        a {
+            color: #FF8C42;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 1.5rem 1rem;
+            }
+
+            header .logo {
+                font-size: 1.6rem;
+            }
+
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            main {
+                padding: 1.5rem 1rem 3rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.6rem 0.75rem;
+                font-size: 0.85rem;
+            }
+
+            .highlight-box {
+                padding: 1rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><span>Gumi</span></div>
+    <h1>Politique de Confidentialit&eacute;</h1>
+    <p class="updated">Derni&egrave;re mise &agrave; jour : 21 mars 2026</p>
+</header>
+
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="privacy-policy.html">Confidentialit&eacute;</a>
+    <a href="terms.html">CGU</a>
+</nav>
+
+<main>
+
+    <!-- Introduction -->
+    <section>
+        <h2>1. Introduction</h2>
+        <p>
+            Bienvenue sur <strong>Gumi</strong>, l'application iOS de coaching canin propuls&eacute;e par intelligence artificielle.
+            La pr&eacute;sente Politique de Confidentialit&eacute; d&eacute;crit comment nous collectons, utilisons et prot&eacute;geons
+            vos donn&eacute;es personnelles conform&eacute;ment au <strong>R&egrave;glement G&eacute;n&eacute;ral sur la Protection des Donn&eacute;es (RGPD)</strong>
+            et &agrave; la l&eacute;gislation fran&ccedil;aise en vigueur.
+        </p>
+        <p>
+            En utilisant l'application Gumi, vous acceptez les pratiques d&eacute;crites dans cette politique.
+        </p>
+    </section>
+
+    <!-- Responsable du traitement -->
+    <section>
+        <h2>2. Responsable du traitement</h2>
+        <div class="highlight-box">
+            <p><strong>Responsable :</strong> Quentin Beaudouin</p>
+            <p><strong>Statut :</strong> Micro-entreprise, France</p>
+            <p><strong>Contact :</strong> <a href="mailto:support@gumi-app.com">support@gumi-app.com</a></p>
+        </div>
+        <p>
+            Pour toute question relative &agrave; la protection de vos donn&eacute;es, vous pouvez nous contacter
+            &agrave; l'adresse ci-dessus. Nous nous engageons &agrave; r&eacute;pondre dans un d&eacute;lai de 30 jours.
+        </p>
+    </section>
+
+    <!-- Donn&eacute;es collect&eacute;es -->
+    <section>
+        <h2>3. Donn&eacute;es collect&eacute;es</h2>
+        <p>Nous collectons uniquement les donn&eacute;es n&eacute;cessaires au fonctionnement de l'application :</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Donn&eacute;e</th>
+                    <th>Finalit&eacute;</th>
+                    <th>Stockage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Adresse email</strong></td>
+                    <td>Authentification et cr&eacute;ation de compte</td>
+                    <td>Supabase (UE, Irlande)</td>
+                </tr>
+                <tr>
+                    <td><strong>Profil du chien</strong><br><small>Nom, race, poids, sexe, date de naissance, probl&egrave;mes de sant&eacute;</small></td>
+                    <td>Personnalisation des conseils IA selon la race</td>
+                    <td>Supabase (UE, Irlande)</td>
+                </tr>
+                <tr>
+                    <td><strong>Localisation GPS</strong></td>
+                    <td>Suivi des balades uniquement (distance, trac&eacute;)</td>
+                    <td>Supabase (UE, Irlande)</td>
+                </tr>
+                <tr>
+                    <td><strong>Photos</strong></td>
+                    <td>Analyse IA (scan chien, scan alimentaire)</td>
+                    <td><span class="badge green">Non stock&eacute;es</span> Analys&eacute;es en m&eacute;moire puis supprim&eacute;es</td>
+                </tr>
+                <tr>
+                    <td><strong>Conversations IA</strong></td>
+                    <td>Historique de coaching canin personnalis&eacute;</td>
+                    <td>Supabase (UE, Irlande)</td>
+                </tr>
+                <tr>
+                    <td><strong>Check-in quotidien</strong><br><small>Humeur, &eacute;nergie, app&eacute;tit, score bien-&ecirc;tre</small></td>
+                    <td>Suivi du bien-&ecirc;tre du chien</td>
+                    <td>Supabase (UE, Irlande)</td>
+                </tr>
+                <tr>
+                    <td><strong>Carnet de sant&eacute;</strong><br><small>Vaccins, visites v&eacute;t&eacute;rinaires, m&eacute;dicaments</small></td>
+                    <td>Suivi m&eacute;dical et rappels</td>
+                    <td>Supabase (UE, Irlande)</td>
+                </tr>
+                <tr>
+                    <td><strong>Scans alimentaires</strong><br><small>Produits analys&eacute;s, Gumi Score</small></td>
+                    <td>Analyse de la qualit&eacute; nutritionnelle</td>
+                    <td>Supabase (UE, Irlande)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box green">
+            <p><strong>Ce que nous ne collectons PAS :</strong></p>
+            <ul>
+                <li>Donn&eacute;es de paiement ou informations bancaires (g&eacute;r&eacute;es exclusivement par Apple via StoreKit)</li>
+                <li>Contacts, calendrier ou autres donn&eacute;es personnelles de votre t&eacute;l&eacute;phone</li>
+                <li>Donn&eacute;es de navigation ou cookies</li>
+                <li>Identifiants publicitaires ou donn&eacute;es de tracking</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Finalit&eacute;s -->
+    <section>
+        <h2>4. Finalit&eacute;s du traitement</h2>
+        <p>Vos donn&eacute;es sont utilis&eacute;es exclusivement pour :</p>
+        <ul>
+            <li><strong>Fonctionnement de l'application</strong> &mdash; Authentification, sauvegarde du profil, historique des fonctionnalit&eacute;s</li>
+            <li><strong>Personnalisation IA</strong> &mdash; Conseils adapt&eacute;s &agrave; la race, l'&acirc;ge, le poids et les probl&eacute;matiques sp&eacute;cifiques de votre chien</li>
+            <li><strong>Suivi de sant&eacute;</strong> &mdash; Courbes de poids, rappels de vaccins, historique m&eacute;dical</li>
+        </ul>
+        <div class="highlight-box">
+            <p><strong>Aucune utilisation publicitaire.</strong> Vos donn&eacute;es ne sont jamais utilis&eacute;es &agrave; des fins de publicit&eacute;, de profilage marketing ou revendues &agrave; des tiers.</p>
+        </div>
+    </section>
+
+    <!-- Base l&eacute;gale -->
+    <section>
+        <h2>5. Base l&eacute;gale du traitement</h2>
+        <p>
+            Le traitement de vos donn&eacute;es repose sur votre <strong>consentement</strong> (Article 6(1)(a) du RGPD),
+            que vous exprimez lors de la cr&eacute;ation de votre compte et de l'utilisation de l'application.
+        </p>
+        <p>
+            Vous pouvez retirer votre consentement &agrave; tout moment en supprimant votre compte depuis les param&egrave;tres de l'application.
+        </p>
+    </section>
+
+    <!-- Sous-traitants -->
+    <section>
+        <h2>6. Sous-traitants et transferts de donn&eacute;es</h2>
+        <p>Nous faisons appel aux sous-traitants suivants pour le fonctionnement de l'application :</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Sous-traitant</th>
+                    <th>R&ocirc;le</th>
+                    <th>Localisation</th>
+                    <th>Donn&eacute;es concern&eacute;es</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Supabase</strong></td>
+                    <td>Base de donn&eacute;es et authentification</td>
+                    <td><span class="badge green">UE (Irlande)</span></td>
+                    <td>Toutes les donn&eacute;es utilisateur</td>
+                </tr>
+                <tr>
+                    <td><strong>Anthropic</strong></td>
+                    <td>Traitement IA (Claude API)</td>
+                    <td><span class="badge">USA</span></td>
+                    <td>Messages chat, photos (analyse en temps r&eacute;el, aucune r&eacute;tention par Anthropic)</td>
+                </tr>
+                <tr>
+                    <td><strong>Railway</strong></td>
+                    <td>H&eacute;bergement de l'API backend</td>
+                    <td><span class="badge">USA</span></td>
+                    <td>Traitement des requ&ecirc;tes (pas de stockage persistant)</td>
+                </tr>
+                <tr>
+                    <td><strong>Apple</strong></td>
+                    <td>Paiements via StoreKit</td>
+                    <td><span class="badge green">UE</span></td>
+                    <td>Aucune donn&eacute;e financi&egrave;re stock&eacute;e par Gumi</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            Pour les transferts vers les &Eacute;tats-Unis (Anthropic, Railway), ceux-ci sont encadr&eacute;s par le
+            <strong>EU-US Data Privacy Framework</strong> et les clauses contractuelles types de la Commission europ&eacute;enne.
+            Anthropic ne conserve aucune donn&eacute;e apr&egrave;s le traitement des requ&ecirc;tes.
+        </p>
+    </section>
+
+    <!-- Dur&eacute;e de conservation -->
+    <section>
+        <h2>7. Dur&eacute;e de conservation</h2>
+        <p>
+            Vos donn&eacute;es sont conserv&eacute;es <strong>tant que votre compte est actif</strong>.
+        </p>
+        <p>
+            Lorsque vous supprimez votre compte (via le bouton &laquo;&nbsp;Supprimer mon compte&nbsp;&raquo; dans les param&egrave;tres),
+            <strong>toutes vos donn&eacute;es sont supprim&eacute;es de mani&egrave;re irr&eacute;versible</strong> dans un d&eacute;lai de 48 heures,
+            y compris :
+        </p>
+        <ul>
+            <li>Profil utilisateur et profil(s) du/des chien(s)</li>
+            <li>Conversations avec le coach IA</li>
+            <li>Check-ins et historique de bien-&ecirc;tre</li>
+            <li>Balades enregistr&eacute;es</li>
+            <li>Carnet de sant&eacute;</li>
+            <li>Scans alimentaires</li>
+            <li>Compte d'authentification Supabase</li>
+        </ul>
+    </section>
+
+    <!-- Droits des utilisateurs -->
+    <section>
+        <h2>8. Vos droits (RGPD)</h2>
+        <p>Conform&eacute;ment au RGPD, vous disposez des droits suivants :</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Droit</th>
+                    <th>Description</th>
+                    <th>Comment l'exercer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Acc&egrave;s</strong></td>
+                    <td>Obtenir une copie de toutes vos donn&eacute;es</td>
+                    <td>Bouton &laquo;&nbsp;Exporter mes donn&eacute;es&nbsp;&raquo; dans l'app (export JSON)</td>
+                </tr>
+                <tr>
+                    <td><strong>Rectification</strong></td>
+                    <td>Corriger des donn&eacute;es inexactes</td>
+                    <td>Modifier votre profil ou celui de votre chien directement dans l'app</td>
+                </tr>
+                <tr>
+                    <td><strong>Effacement</strong></td>
+                    <td>Supprimer toutes vos donn&eacute;es</td>
+                    <td>Bouton &laquo;&nbsp;Supprimer mon compte&nbsp;&raquo; dans les param&egrave;tres (suppression en cascade)</td>
+                </tr>
+                <tr>
+                    <td><strong>Portabilit&eacute;</strong></td>
+                    <td>R&eacute;cup&eacute;rer vos donn&eacute;es dans un format structur&eacute;</td>
+                    <td>Export JSON complet via l'app</td>
+                </tr>
+                <tr>
+                    <td><strong>Opposition</strong></td>
+                    <td>Vous opposer au traitement de vos donn&eacute;es</td>
+                    <td>Contactez <a href="mailto:support@gumi-app.com">support@gumi-app.com</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Limitation</strong></td>
+                    <td>Restreindre le traitement de vos donn&eacute;es</td>
+                    <td>Contactez <a href="mailto:support@gumi-app.com">support@gumi-app.com</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            Pour exercer vos droits, vous pouvez utiliser les fonctionnalit&eacute;s int&eacute;gr&eacute;es &agrave; l'application
+            ou nous contacter &agrave; <a href="mailto:support@gumi-app.com">support@gumi-app.com</a>.
+            Nous r&eacute;pondrons dans un d&eacute;lai maximum de <strong>30 jours</strong>.
+        </p>
+        <p>
+            Si vous estimez que vos droits ne sont pas respect&eacute;s, vous pouvez d&eacute;poser une r&eacute;clamation
+            aupr&egrave;s de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libert&eacute;s) :
+            <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>.
+        </p>
+    </section>
+
+    <!-- S&eacute;curit&eacute; -->
+    <section>
+        <h2>9. S&eacute;curit&eacute; des donn&eacute;es</h2>
+        <p>Nous mettons en oeuvre les mesures de s&eacute;curit&eacute; suivantes :</p>
+        <ul>
+            <li><strong>Authentification JWT</strong> avec v&eacute;rification de signature pour chaque requ&ecirc;te</li>
+            <li><strong>Chiffrement HTTPS/TLS</strong> pour tous les &eacute;changes de donn&eacute;es</li>
+            <li><strong>Limitation de d&eacute;bit (rate limiting)</strong> sur les endpoints sensibles</li>
+            <li><strong>Aucune cl&eacute; API</strong> stock&eacute;e dans l'application iOS</li>
+            <li><strong>Validation des entr&eacute;es</strong> c&ocirc;t&eacute; serveur</li>
+            <li><strong>Stockage s&eacute;curis&eacute;</strong> des tokens dans le Keychain iOS</li>
+            <li><strong>Base de donn&eacute;es h&eacute;berg&eacute;e en UE</strong> (Supabase, Irlande)</li>
+        </ul>
+    </section>
+
+    <!-- Cookies et tracking -->
+    <section>
+        <h2>10. Cookies et tracking</h2>
+        <div class="highlight-box green">
+            <p>
+                <strong>Gumi n'utilise aucun cookie, aucun tracker, aucun outil d'analyse comportementale
+                et aucun identifiant publicitaire.</strong>
+            </p>
+            <p>
+                L'application ne contient aucun SDK tiers de publicit&eacute; ou d'analytique.
+                Nous ne suivons pas votre activit&eacute; en dehors de l'application.
+            </p>
+        </div>
+    </section>
+
+    <!-- &Acirc;ge minimum -->
+    <section>
+        <h2>11. &Acirc;ge minimum</h2>
+        <p>
+            L'utilisation de Gumi est r&eacute;serv&eacute;e aux personnes &acirc;g&eacute;es de <strong>16 ans ou plus</strong>,
+            conform&eacute;ment &agrave; l'article 8 du RGPD et &agrave; la l&eacute;gislation fran&ccedil;aise.
+        </p>
+        <p>
+            Une v&eacute;rification de l'&acirc;ge est effectu&eacute;e lors de l'inscription. Si nous d&eacute;couvrons
+            qu'un utilisateur a moins de 16 ans, son compte sera supprim&eacute; imm&eacute;diatement.
+        </p>
+    </section>
+
+    <!-- Modifications -->
+    <section>
+        <h2>12. Modifications de cette politique</h2>
+        <p>
+            Nous nous r&eacute;servons le droit de modifier cette Politique de Confidentialit&eacute; &agrave; tout moment.
+            En cas de modification substantielle, nous vous en informerons via une notification dans l'application.
+        </p>
+        <p>
+            La date de derni&egrave;re mise &agrave; jour est indiqu&eacute;e en haut de cette page.
+            Nous vous encourageons &agrave; consulter r&eacute;guli&egrave;rement cette page.
+        </p>
+    </section>
+
+    <!-- Contact -->
+    <section>
+        <div class="contact-box">
+            <h2>13. Nous contacter</h2>
+            <p>
+                Pour toute question concernant cette politique ou vos donn&eacute;es personnelles :
+            </p>
+            <p style="margin-top: 1rem;">
+                <a href="mailto:support@gumi-app.com">support@gumi-app.com</a>
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                Quentin Beaudouin &mdash; Micro-entreprise, France
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Gumi. Tous droits r&eacute;serv&eacute;s.</p>
+    <p style="margin-top: 0.5rem;">
+        <a href="index.html">Accueil</a> &middot;
+        <a href="privacy-policy.html">Confidentialit&eacute;</a> &middot;
+        <a href="terms.html">CGU</a>
+    </p>
+</footer>
+
+</body>
+</html>

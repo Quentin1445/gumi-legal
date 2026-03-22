@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gumi — Coach IA pour ton chien | Dressage, sante, balades & alimentation</title>
-    <meta name="description" content="Gumi est l'app iOS de coaching canin propulsee par intelligence artificielle. Coach personnalise par race, Food Scanner, Walk Spots, suivi sante, tracker GPS et 15 activites pour ton chien.">
+    <title>Gumi — Coach IA pour ton chien | Dressage, santé, balades & alimentation</title>
+    <meta name="description" content="Gumi est l'app iOS de coaching canin propulsée par intelligence artificielle. Coach personnalisé par race, Food Scanner, Walk Spots, suivi santé, tracker GPS et 15 activités pour ton chien.">
     <meta property="og:title" content="Gumi — Coach IA pour ton chien">
-    <meta property="og:description" content="L'app iOS qui comprend vraiment ton chien. Coach IA par race, Food Scanner, Walk Spots, suivi sante et bien plus.">
+    <meta property="og:description" content="L'app iOS qui comprend vraiment ton chien. Coach IA par race, Food Scanner, Walk Spots, suivi santé et bien plus.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gumi-app.com">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>">
@@ -930,7 +930,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            align-items: start;
+            align-items: stretch;
         }
 
         .plan-card {
@@ -943,6 +943,14 @@
             transition: transform 0.3s, box-shadow 0.3s;
             opacity: 0;
             transform: translateY(30px);
+            display: flex;
+            flex-direction: column;
+        }
+        .plan-features {
+            flex: 1;
+        }
+        .plan-cta {
+            margin-top: auto;
         }
 
         .plan-card.visible {
@@ -1482,7 +1490,7 @@
                     L'IA qui <span class="highlight">comprend</span><br>ton chien
                 </h1>
                 <p class="hero-subtitle" style="animation: fadeSlideUp 0.8s ease-out 0.25s both;">
-                    Coach IA personnalise par race, scanner alimentaire intelligent, spots de balade, dressage et suivi sante complet. Tout ce dont ton chien a besoin, dans une seule app.
+                    Coach IA personnalisé par race, scanner alimentaire intelligent, spots de balade, dressage et suivi santé complet. Tout ce dont ton chien a besoin, dans une seule app.
                 </p>
                 <div class="hero-actions" style="animation: fadeSlideUp 0.8s ease-out 0.35s both;">
                     <a href="#pricing" class="btn-primary">
@@ -1516,7 +1524,7 @@
                             <div class="phone-title">Comment va ton chien ?</div>
                         </div>
                         <div class="phone-paw-circle">🐾</div>
-                        <div class="phone-score">Score bien-etre : 87/100 🔥</div>
+                        <div class="phone-score">Score bien-être : 87/100 🔥</div>
                         <div class="phone-cards">
                             <div class="phone-card">
                                 <div class="phone-card-icon orange">🤖</div>
@@ -1543,7 +1551,7 @@
                                 <div class="phone-card-icon purple">🎯</div>
                                 <div>
                                     <div class="phone-card-text">Objectifs du jour</div>
-                                    <div class="phone-card-sub">2/4 completes</div>
+                                    <div class="phone-card-sub">2/4 complètes</div>
                                 </div>
                             </div>
                         </div>
@@ -1584,21 +1592,21 @@
             <div class="section-header">
                 <div class="section-label">🐾 Fonctionnalites</div>
                 <h2 class="section-title">Tout pour prendre soin de ton compagnon</h2>
-                <p class="section-desc">Une app complete qui s'adapte a la race, l'age et les besoins de ton chien. Pas un outil generique — un vrai compagnon intelligent.</p>
+                <p class="section-desc">Une app complete qui s'adapte à la race, l'age et les besoins de ton chien. Pas un outil generique — un vrai compagnon intelligent.</p>
             </div>
             <div class="features-grid">
                 <!-- 1 -->
                 <div class="feature-card">
                     <div class="feature-icon orange-bg">🤖</div>
                     <h3 class="feature-title">Coach IA personnalise</h3>
-                    <p class="feature-desc">Pose n'importe quelle question et recois des conseils adaptes a la race, l'age et le caractere de ton chien. Disponible 24h/24.</p>
+                    <p class="feature-desc">Pose n'importe quelle question et recois des conseils adaptes à la race, l'age et le caractere de ton chien. Disponible 24h/24.</p>
                     <span class="feature-tag ia">IA</span>
                 </div>
                 <!-- 2 -->
                 <div class="feature-card">
                     <div class="feature-icon green-bg">🍖</div>
                     <h3 class="feature-title">Food Scanner</h3>
-                    <p class="feature-desc">Scanne une etiquette de croquettes ou un code-barres. Gumi Score /100 personnalise, portions recommandees et guide de transition.</p>
+                    <p class="feature-desc">Scanne une étiquette de croquettes ou un code-barres. Gumi Score /100 personnalise, portions recommandées et guide de transition.</p>
                     <span class="feature-tag new">Nouveau</span>
                 </div>
                 <!-- 3 -->
@@ -1612,20 +1620,20 @@
                 <div class="feature-card">
                     <div class="feature-icon teal-bg">🗺️</div>
                     <h3 class="feature-title">Walk Tracker GPS</h3>
-                    <p class="feature-desc">Carte temps reel, chronometre, distance, calories brulees et objectif de balade adapte a la race de ton chien.</p>
+                    <p class="feature-desc">Carte temps reel, chronometre, distance, calories brulees et objectif de balade adapte à la race de ton chien.</p>
                 </div>
                 <!-- 5 -->
                 <div class="feature-card">
                     <div class="feature-icon purple-bg">📸</div>
                     <h3 class="feature-title">Scan Photo IA</h3>
-                    <p class="feature-desc">Prends ton chien en photo. L'IA analyse sa race, son emotion et son etat de sante. Des infos instantanees et fiables.</p>
+                    <p class="feature-desc">Prends ton chien en photo. L'IA analyse sa race, son emotion et son etat de santé. Des infos instantanees et fiables.</p>
                     <span class="feature-tag ia">IA</span>
                 </div>
                 <!-- 6 -->
                 <div class="feature-card">
                     <div class="feature-icon red-bg">❤️</div>
                     <h3 class="feature-title">Daily Check-in</h3>
-                    <p class="feature-desc">Score bien-etre /100 chaque jour, streak motivant et suggestions automatiques si ton chien ne va pas bien.</p>
+                    <p class="feature-desc">Score bien-être /100 chaque jour, streak motivant et suggestions automatiques si ton chien ne va pas bien.</p>
                 </div>
                 <!-- 7 -->
                 <div class="feature-card">
@@ -1637,13 +1645,13 @@
                 <div class="feature-card">
                     <div class="feature-icon pink-bg">🎓</div>
                     <h3 class="feature-title">Dressage & Soins</h3>
-                    <p class="feature-desc">8 lecons progressives (Assis a Socialisation) + 6 routines soins adaptees au pelage. Etape par etape.</p>
+                    <p class="feature-desc">8 leçons progressives (Assis a Socialisation) + 6 routines soins adaptées au pelage. Etape par etape.</p>
                 </div>
                 <!-- 9 -->
                 <div class="feature-card">
                     <div class="feature-icon indigo-bg">🧩</div>
                     <h3 class="feature-title">Occuper son chien</h3>
-                    <p class="feature-desc">15 activites dans 5 categories : intelligence, seul a la maison, jours de pluie, socialisation, enrichissement mental.</p>
+                    <p class="feature-desc">15 activités dans 5 categories : intelligence, seul à la maison, jours de pluie, socialisation, enrichissement mental.</p>
                     <span class="feature-tag new">Nouveau</span>
                 </div>
             </div>
@@ -1662,8 +1670,8 @@
                     <h2 class="spotlight-title">Un coach qui connait <em>vraiment</em> ton chien</h2>
                     <p class="spotlight-desc">Pas un chatbot generique. Gumi apprend la race, le caractere, l'age et les objectifs de ton chien pour donner des conseils ultra-personnalises.</p>
                     <ul class="spotlight-features">
-                        <li>Conseils adaptes a la race (100+ races)</li>
-                        <li>Suggestions contextuelles selon le bien-etre du jour</li>
+                        <li>Conseils adaptes à la race (100+ races)</li>
+                        <li>Suggestions contextuelles selon le bien-être du jour</li>
                         <li>Historique des conversations sauvegarde</li>
                         <li>Disponible 24h/24, 7j/7</li>
                     </ul>
@@ -1686,12 +1694,12 @@
             <div class="spotlight-item reverse">
                 <div class="spotlight-content">
                     <div class="spotlight-badge green">🍖 Nutrition</div>
-                    <h2 class="spotlight-title">Scanne ses croquettes, decouvre la verite</h2>
-                    <p class="spotlight-desc">Photo de l'etiquette ou scan du code-barres. L'IA analyse la composition et calcule un Gumi Score /100 personnalise selon la race, l'age et le poids de ton chien.</p>
+                    <h2 class="spotlight-title">Scanne ses croquettes, découvre la vérité</h2>
+                    <p class="spotlight-desc">Photo de l'étiquette ou scan du code-barres. L'IA analyse la composition et calcule un Gumi Score /100 personnalisé selon la race, l'age et le poids de ton chien.</p>
                     <ul class="spotlight-features">
                         <li>Gumi Score /100 avec jauge visuelle</li>
-                        <li>Alertes allergenes specifiques a la race</li>
-                        <li>Portions recommandees par poids/age</li>
+                        <li>Alertes allergenes specifiques à la race</li>
+                        <li>Portions recommandées par poids/age</li>
                         <li>Guide de transition alimentaire en 7 jours</li>
                     </ul>
                 </div>
@@ -1720,10 +1728,10 @@
                 <div class="spotlight-content">
                     <div class="spotlight-badge blue">📍 Balades</div>
                     <h2 class="spotlight-title">Les meilleurs spots pour ton chien, autour de toi</h2>
-                    <p class="spotlight-desc">Decouvre les parcs, aires canines et forets les plus proches. Filtre par type, consulte les infos et lance l'itineraire en un tap.</p>
+                    <p class="spotlight-desc">Découvre les parcs, aires canines et forets les plus proches. Filtre par type, consulte les infos et lance l'itineraire en un tap.</p>
                     <ul class="spotlight-features">
                         <li>Carte interactive avec spots autour de toi</li>
-                        <li>Tags : cloture, point d'eau, ombre, hors-laisse</li>
+                        <li>Tags : clôturé, point d'eau, ombre, hors-laisse</li>
                         <li>Itineraire Apple Maps en un tap</li>
                         <li>Tracker GPS integre pour chaque balade</li>
                     </ul>
@@ -1766,7 +1774,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">💡 Pour qui ?</div>
-                <h2 class="section-title">Gumi s'adapte a toi</h2>
+                <h2 class="section-title">Gumi s'adapté à toi</h2>
                 <p class="section-desc">Que tu viennes d'adopter ton premier chiot ou que tu sois un maitre experimente avec plusieurs compagnons.</p>
             </div>
             <div class="personas-grid">
@@ -1783,7 +1791,7 @@
                 <div class="persona-card">
                     <div class="persona-emoji">🏆</div>
                     <h3 class="persona-title">Maitre experimente</h3>
-                    <p class="persona-desc">Tu connais ton chien par coeur mais tu veux optimiser son alimentation, ses balades et son bien-etre au quotidien.</p>
+                    <p class="persona-desc">Tu connais ton chien par coeur mais tu veux optimiser son alimentation, ses balades et son bien-être au quotidien.</p>
                     <ul class="persona-features">
                         <li>✨ Food Scanner & Gumi Score</li>
                         <li>✨ Objectifs journaliers personnalises</li>
@@ -1793,10 +1801,10 @@
                 <div class="persona-card">
                     <div class="persona-emoji">🐕‍🦺</div>
                     <h3 class="persona-title">Multi-chiens</h3>
-                    <p class="persona-desc">Tu as 2 ou 3 chiens ? Chacun a son profil, ses objectifs et son suivi sante. Bascule entre eux en un tap.</p>
+                    <p class="persona-desc">Tu as 2 ou 3 chiens ? Chacun a son profil, ses objectifs et son suivi santé. Bascule entre eux en un tap.</p>
                     <ul class="persona-features">
                         <li>✨ Jusqu'a 3 profils chiens</li>
-                        <li>✨ Suivi sante par chien</li>
+                        <li>✨ Suivi santé par chien</li>
                         <li>✨ Conseils IA par race</li>
                     </ul>
                 </div>
@@ -1811,7 +1819,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">🚀 Comment ca marche</div>
-                <h2 class="section-title">Pret en 2 minutes</h2>
+                <h2 class="section-title">Prêt en 2 minutes</h2>
                 <p class="section-desc">Pas de configuration compliquee. Cree ton compte, ajoute ton chien, et Gumi s'occupe du reste.</p>
             </div>
             <div class="steps">
@@ -1822,7 +1830,7 @@
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Decouvre ton rapport personnalite</h3>
+                    <h3 class="step-title">Découvre ton rapport personnalite</h3>
                     <p class="step-desc">L'IA genere un rapport unique : temperament, besoins specifiques, points forts et conseils adaptes a ta race.</p>
                 </div>
                 <div class="step">
@@ -1842,7 +1850,7 @@
             <div class="section-header">
                 <div class="section-label">💎 Tarifs</div>
                 <h2 class="section-title">Choisis ton plan</h2>
-                <p class="section-desc">Commence gratuitement, passe a Premium quand tu veux. Sans engagement, annulable a tout moment.</p>
+                <p class="section-desc">Commence gratuitement, passe a Premium quand tu veux. Sans engagement, annulable à tout moment.</p>
             </div>
             <div class="pricing-grid">
                 <!-- Free -->
@@ -1859,10 +1867,10 @@
                         <li><span class="check">✓</span> 3 messages IA / jour</li>
                         <li><span class="check">✓</span> 1 scan / semaine</li>
                         <li><span class="check">✓</span> 1 balade GPS / jour</li>
-                        <li><span class="check">✓</span> 3 lecons dressage</li>
-                        <li><span class="check">✓</span> Check-in bien-etre</li>
-                        <li class="disabled"><span class="cross">—</span> Messages IA illimites</li>
-                        <li class="disabled"><span class="cross">—</span> Scans illimites</li>
+                        <li><span class="check">✓</span> 3 leçons dressage</li>
+                        <li><span class="check">✓</span> Check-in bien-être</li>
+                        <li class="disabled"><span class="cross">—</span> Messages IA illimités</li>
+                        <li class="disabled"><span class="cross">—</span> Scans illimités</li>
                         <li class="disabled"><span class="cross">—</span> Walk Spots</li>
                     </ul>
                     <button class="plan-cta outline">Commencer</button>
@@ -1881,12 +1889,12 @@
                     <div class="plan-trial">7 jours d'essai gratuit</div>
                     <div class="plan-divider"></div>
                     <ul class="plan-features">
-                        <li><span class="check">✓</span> Messages IA illimites</li>
-                        <li><span class="check">✓</span> Scans illimites (photo + food)</li>
-                        <li><span class="check">✓</span> Balades GPS illimitees</li>
+                        <li><span class="check">✓</span> Messages IA illimités</li>
+                        <li><span class="check">✓</span> Scans illimités (photo + food)</li>
+                        <li><span class="check">✓</span> Balades GPS illimitées</li>
                         <li><span class="check">✓</span> Walk Spots & carte</li>
-                        <li><span class="check">✓</span> 8 lecons dressage completes</li>
-                        <li><span class="check">✓</span> 15 activites pour ton chien</li>
+                        <li><span class="check">✓</span> 8 leçons dressage complètes</li>
+                        <li><span class="check">✓</span> 15 activités pour ton chien</li>
                         <li><span class="check">✓</span> 6 routines soins</li>
                         <li><span class="check">✓</span> Journal & graphiques complets</li>
                     </ul>
@@ -1906,19 +1914,19 @@
                     <div class="plan-divider"></div>
                     <ul class="plan-features">
                         <li><span class="check">✓</span> Tout le Premium inclus</li>
-                        <li><span class="check">✓</span> Messages IA illimites</li>
-                        <li><span class="check">✓</span> Scans illimites</li>
+                        <li><span class="check">✓</span> Messages IA illimités</li>
+                        <li><span class="check">✓</span> Scans illimités</li>
                         <li><span class="check">✓</span> Walk Spots & carte</li>
-                        <li><span class="check">✓</span> Toutes les lecons & activites</li>
+                        <li><span class="check">✓</span> Toutes les leçons & activités</li>
                         <li><span class="check">✓</span> Journal & graphiques complets</li>
-                        <li><span class="check">✓</span> Routines soins personnalisees</li>
-                        <li><span class="check">✓</span> Priorite nouvelles features</li>
+                        <li><span class="check">✓</span> Routines soins personnalisées</li>
+                        <li><span class="check">✓</span> Priorité nouvelles features</li>
                     </ul>
                     <button class="plan-cta outline">Essayer 7 jours gratuit</button>
                     <div class="plan-savings">-67% vs mensuel</div>
                 </div>
             </div>
-            <p class="pricing-note">Renouvellement automatique. Annulable a tout moment dans les reglages de ton iPhone. Les prix peuvent varier selon les pays.</p>
+            <p class="pricing-note">Renouvellement automatique. Annulable à tout moment dans les réglages de ton iPhone. Les prix peuvent varier selon les pays.</p>
         </div>
     </section>
 
@@ -1929,55 +1937,55 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">❓ FAQ</div>
-                <h2 class="section-title">Tes questions, nos reponses</h2>
+                <h2 class="section-title">Tes questions, nos réponses</h2>
             </div>
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-question">Gumi remplace-t-il un veterinaire ?</button>
+                    <button class="faq-question">Gumi remplace-t-il un vétérinaire ?</button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Non, Gumi est un outil d'aide et de coaching canin. Il ne pose aucun diagnostic medical. En cas de doute sur la sante de ton chien, consulte toujours un veterinaire. L'app affiche un disclaimer clair dans le chat et les resultats de scan.</div>
+                        <div class="faq-answer-inner">Non, Gumi est un outil d'aide et de coaching canin. Il ne pose aucun diagnostic médical. En cas de doute sur la santé de ton chien, consulte toujours un vétérinaire. L'app affiche un disclaimer clair dans le chat et les résultats de scan.</div>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">Mes donnees sont-elles en securite ?</button>
+                    <button class="faq-question">Mes données sont-elles en sécurité ?</button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Oui. Gumi est conforme au RGPD. Tes donnees sont stockees sur des serveurs securises en Europe (Supabase, region Irlande). Tu peux exporter ou supprimer toutes tes donnees a tout moment depuis l'app. Nous ne vendons jamais tes informations.</div>
+                        <div class="faq-answer-inner">Oui. Gumi est conforme au RGPD. Tes données sont stockées sur des serveurs securises en Europe (Supabase, region Irlande). Tu peux exporter ou supprimer toutes tes données à tout moment depuis l'app. Nous ne vendons jamais tes informations.</div>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Combien de chiens puis-je ajouter ?</button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Tu peux ajouter jusqu'a 3 chiens avec des profils separes. Chaque chien a son propre suivi sante, ses objectifs journaliers et ses conseils IA personnalises. Bascule entre eux en un seul tap.</div>
+                        <div class="faq-answer-inner">Tu peux ajouter jusqu'a 3 chiens avec des profils separes. Chaque chien a son propre suivi santé, ses objectifs journaliers et ses conseils IA personnalises. Bascule entre eux en un seul tap.</div>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Comment fonctionne le Food Scanner ?</button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Prends en photo l'etiquette de ses croquettes ou scanne le code-barres. L'IA analyse la composition et calcule un Gumi Score /100 personnalise selon la race, l'age et le poids de ton chien. Tu obtiens aussi des portions recommandees et un guide de transition alimentaire.</div>
+                        <div class="faq-answer-inner">Prends en photo l'étiquette de ses croquettes ou scanne le code-barres. L'IA analyse la composition et calcule un Gumi Score /100 personnalisé selon la race, l'age et le poids de ton chien. Tu obtiens aussi des portions recommandées et un guide de transition alimentaire.</div>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">C'est quoi les Walk Spots ?</button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Walk Spots te montre les meilleurs endroits pour promener ton chien autour de toi : parcs, aires canines, forets. Chaque spot affiche des tags utiles (cloture, point d'eau, hors-laisse, ombre) et tu peux lancer l'itineraire Apple Maps en un tap.</div>
+                        <div class="faq-answer-inner">Walk Spots te montre les meilleurs endroits pour promener ton chien autour de toi : parcs, aires canines, forets. Chaque spot affiche des tags utiles (clôturé, point d'eau, hors-laisse, ombre) et tu peux lancer l'itineraire Apple Maps en un tap.</div>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">L'app fonctionne-t-elle sans connexion Internet ?</button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Le tracker GPS et les lecons de dressage sont accessibles hors-ligne. Le coach IA, le Food Scanner et les Walk Spots necessitent une connexion Internet pour fonctionner.</div>
+                        <div class="faq-answer-inner">Le tracker GPS et les leçons de dressage sont accessibles hors-ligne. Le coach IA, le Food Scanner et les Walk Spots necessitent une connexion Internet pour fonctionner.</div>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Ma race est-elle supportee ?</button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Gumi reconnait plus de 100 races avec autocompletion. Si ta race n'est pas dans la liste, tu peux la saisir manuellement dans le champ "Autre chose". L'IA s'adapte a toutes les races, y compris les croises.</div>
+                        <div class="faq-answer-inner">Gumi reconnait plus de 100 races avec autocompletion. Si ta race n'est pas dans la liste, tu peux la saisir manuellement dans le champ "Autre chose". L'IA s'adapté à toutes les races, y compris les croises.</div>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Puis-je annuler mon abonnement ?</button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Oui, a tout moment. L'abonnement se gere directement dans les reglages de ton iPhone (Reglages > Apple ID > Abonnements). Si tu annules pendant la periode d'essai gratuit, tu ne seras pas facture.</div>
+                        <div class="faq-answer-inner">Oui, à tout moment. L'abonnement se gere directement dans les réglages de ton iPhone (Reglages > Apple ID > Abonnements). Si tu annules pendant la periode d'essai gratuit, tu ne seras pas facture.</div>
                     </div>
                 </div>
             </div>
@@ -1990,7 +1998,7 @@
     <section class="final-cta">
         <div class="container">
             <span class="final-cta-paw">🐾</span>
-            <h2>Pret a donner le meilleur a ton chien ?</h2>
+            <h2>Prêt a donner le meilleur à ton chien ?</h2>
             <p>Rejoins des maitres qui utilisent Gumi chaque jour pour mieux comprendre, nourrir et promener leur compagnon.</p>
             <a href="#pricing" class="btn-primary">Commencer gratuitement</a>
         </div>
@@ -2007,7 +2015,7 @@
                         <div class="logo-icon">🐾</div>
                         Gumi
                     </div>
-                    <p class="footer-desc">L'app iOS de coaching canin propulsee par intelligence artificielle. Conseils personnalises par race, suivi sante et bien plus.</p>
+                    <p class="footer-desc">L'app iOS de coaching canin propulsée par intelligence artificielle. Conseils personnalises par race, suivi santé et bien plus.</p>
                 </div>
                 <div>
                     <div class="footer-title">App</div>

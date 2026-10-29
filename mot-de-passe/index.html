@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Gumi — Nouveau mot de passe</title>
+    <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23E8632A'/%3E%3C/svg%3E">
+    <script>
+        // Le backend n'accepte que https://gumi-app.com : on y bascule si besoin.
+        if (location.protocol === "http:" && location.hostname !== "localhost") {
+            location.replace("https://" + location.host + location.pathname);
+        }
+    </script>
+    <style>
+        :root {
+            --paper: #FBF6EE; --card: #FFFFFF; --hairline: #EFE5D6;
+            --ink: #2A2018; --ink-soft: #6B5D50; --ink-faint: #938275;
+            --accent: #E8632A; --accent-ink: #B8461A; --danger: #C8452F; --success: #2F8F63;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; background: var(--paper); color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        main { max-width: 440px; margin: 0 auto; padding: 40px 16px 64px; }
+        .logo { text-align: center; font: 700 28px ui-rounded, -apple-system, sans-serif; margin-bottom: 24px; }
+        .logo span { color: var(--accent); }
+        .card {
+            background: var(--card); border: 1px solid var(--hairline); border-radius: 20px;
+            padding: 28px 20px; box-shadow: 0 6px 18px rgba(0,0,0,.05);
+        }
+        h1 { font: 700 22px ui-rounded, -apple-system, sans-serif; margin: 0 0 8px; }
+        p { color: var(--ink-soft); font-size: 15px; line-height: 1.55; margin: 0 0 16px; }
+        label { display: block; font-size: 14px; font-weight: 600; color: var(--ink-soft); margin: 0 0 6px; }
+        input {
+            width: 100%; min-height: 52px; padding: 0 16px; margin: 0 0 14px;
+            font-size: 17px; color: var(--ink); background: var(--card);
+            border: 1px solid var(--hairline); border-radius: 14px; outline: none;
+        }
+        input:focus { border-color: var(--accent); }
+        input.code { font-size: 24px; letter-spacing: 6px; font-variant-numeric: tabular-nums; }
+        button {
+            width: 100%; min-height: 52px; border: 0; border-radius: 14px; cursor: pointer;
+            background: var(--accent); color: #fff; font-size: 16px; font-weight: 600;
+        }
+        button:disabled { opacity: .5; cursor: default; }
+        .link {
+            background: none; color: var(--ink-soft); font-size: 14px; min-height: 44px; margin-top: 8px;
+        }
+        .error { color: var(--danger); font-size: 14px; margin: 12px 0 0; }
+        .note { font-size: 13px; color: var(--ink-faint); margin-top: 16px; }
+        .steps { padding-left: 20px; color: var(--ink); line-height: 1.7; margin: 0 0 8px; }
+        .ok { color: var(--success); }
+        [hidden] { display: none !important; }
+        footer { text-align: center; font-size: 13px; color: var(--ink-faint); margin-top: 24px; }
+        footer a { color: var(--accent-ink); }
+    </style>
+</head>
+<body>
+<main>
+    <div class="logo">Gumi<span>.</span></div>
+
+    <div class="card">
+        <!-- Étape 1 : l'e-mail -->
+        <form id="step-email">
+            <h1>Mot de passe oublié</h1>
+            <p>Entre l'e-mail de ton compte Gumi : on t'envoie un code pour choisir un nouveau mot de passe.</p>
+            <label for="email">Ton e-mail</label>
+            <input id="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" required>
+            <button id="send" type="submit">Recevoir un code</button>
+            <p class="note">Ton compte a été créé avec « Continuer avec Apple » ? Tu n'as jamais eu de mot de passe : tu peux en choisir un ici, avec l'adresse de ton identifiant Apple.</p>
+        </form>
+
+        <!-- Étape 2 : le code + le nouveau mot de passe -->
+        <form id="step-code" hidden>
+            <h1>Regarde tes e-mails</h1>
+            <p>Si un compte existe avec <strong id="email-echo"></strong>, un code vient d'y être envoyé. Pense à regarder dans les indésirables.</p>
+            <label for="code">Code reçu par e-mail</label>
+            <input id="code" class="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="12" required>
+            <label for="password">Nouveau mot de passe</label>
+            <input id="password" type="password" autocomplete="new-password" minlength="8" placeholder="8 caractères minimum" required>
+            <button id="reset" type="submit">Changer mon mot de passe</button>
+            <button id="resend" class="link" type="button">Je n'ai rien reçu : renvoyer un code</button>
+        </form>
+
+        <!-- Étape 3 : c'est fait -->
+        <div id="step-done" hidden>
+            <h1 class="ok">C'est fait !</h1>
+            <p>Ton nouveau mot de passe est enregistré. Pour retrouver ton chien :</p>
+            <ol class="steps">
+                <li>Ouvre l'app Gumi</li>
+                <li>Touche « Déjà un compte ? Se connecter »</li>
+                <li>Entre <strong id="email-done"></strong> et ton nouveau mot de passe</li>
+            </ol>
+            <p class="note">Ton abonnement est lié à ton identifiant Apple : il te suit automatiquement.</p>
+        </div>
+
+        <p id="error" class="error" hidden></p>
+    </div>
+
+    <footer>Une question ? <a href="mailto:support@gumi-app.com">support@gumi-app.com</a></footer>
+</main>
+
+<script>
+    // Mot de passe oublié — même parcours que dans l'app (29/10/2026).
+    // 1. /password/forgot envoie un code par e-mail ; 2. /password/reset l'utilise.
+    const API = "https://gumi-backend-production.up.railway.app/api/auth/password";
+    const $ = (id) => document.getElementById(id);
+    let email = "";
+
+    function showError(message) {
+        $("error").textContent = message;
+        $("error").hidden = !message;
+    }
+
+    async function call(path, body) {
+        let response;
+        try {
+            response = await fetch(API + path, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body),
+            });
+        } catch (e) {
+            throw new Error("Pas de connexion internet. Vérifie ton réseau.");
+        }
+        const data = await response.json().catch(() => ({}));
+        if (response.status === 429) throw new Error(data.detail || "Trop d'essais. Attends une minute, ou demande un nouveau code.");
+        if (!response.ok) throw new Error(typeof data.detail === "string" ? data.detail : "Une erreur est survenue. Réessaie.");
+        return data;
+    }
+
+    async function sendCode(button) {
+        showError("");
+        button.disabled = true;
+        try {
+            await call("/forgot", { email });
+            $("email-echo").textContent = email;
+            $("step-email").hidden = true;
+            $("step-code").hidden = false;
+            $("code").focus();
+            return true;
+        } catch (e) {
+            showError(e.message);
+            return false;
+        } finally {
+            button.disabled = false;
+        }
+    }
+
+    $("step-email").addEventListener("submit", async (event) => {
+        event.preventDefault();
+        email = $("email").value.trim().toLowerCase();
+        await sendCode($("send"));
+    });
+
+    $("resend").addEventListener("click", async () => {
+        if (await sendCode($("resend"))) $("resend").textContent = "Nouveau code envoyé.";
+    });
+
+    $("step-code").addEventListener("submit", async (event) => {
+        event.preventDefault();
+        showError("");
+        const code = $("code").value.replace(/\D/g, "");
+        const password = $("password").value;
+        if (code.length < 6) return showError("Recopie le code reçu par e-mail.");
+        if (password.length < 8) return showError("Le mot de passe doit faire au moins 8 caractères.");
+        $("reset").disabled = true;
+        try {
+            // La réponse contient aussi des jetons de connexion : la page ne les garde pas.
+            await call("/reset", { email, code, password });
+            $("email-done").textContent = email;
+            $("step-code").hidden = true;
+            $("step-done").hidden = false;
+        } catch (e) {
+            showError(e.message);
+        } finally {
+            $("reset").disabled = false;
+        }
+    });
+</script>
+</body>
+</html>
